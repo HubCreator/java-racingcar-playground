@@ -14,9 +14,7 @@ public class OutputView {
         print(cars);
     }
 
-
     public static void printResult(Cars winner) {
-        print(ViewMessage.RESULT_MESSAGE);
         StringJoiner joiner = new StringJoiner(", ");
         for (Car car : winner) {
             joiner.add(car.getName());
