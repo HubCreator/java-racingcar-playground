@@ -1,6 +1,7 @@
 package util;
 
 import enums.ConstVariable;
+import enums.Delimiter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.StringTokenizer;
 public class ValidationUtil {
 
     public static List<String> getCars(String input) {
-        StringTokenizer st = new StringTokenizer(input, ",");
+        StringTokenizer st = new StringTokenizer(input, Delimiter.COMMA.getValue());
         List<String> result = new ArrayList<>();
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
