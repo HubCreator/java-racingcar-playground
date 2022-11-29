@@ -1,11 +1,11 @@
 package enums;
 
-public enum Delimeter {
+public enum Delimiter {
     COMMA(","), HIPEN("-");
 
     private final String value;
 
-    Delimeter(String value) {
+    Delimiter(String value) {
         this.value = value;
     }
 

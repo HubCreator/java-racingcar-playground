@@ -1,7 +1,7 @@
 package domain;
 
 import enums.ConstVariable;
-import enums.Delimeter;
+import enums.Delimiter;
 
 import java.text.MessageFormat;
 import java.util.stream.IntStream;
@@ -36,7 +36,7 @@ public class Car {
         StringBuilder result = new StringBuilder();
         IntStream
                 .range(0, position.getPosition())
-                .forEach((index) -> result.append(Delimeter.HIPEN.getValue()));
+                .forEach((index) -> result.append(Delimiter.HIPEN.getValue()));
         return MessageFormat.format(MESSAGE_FORMAT, name, result.toString());
     }
 }
