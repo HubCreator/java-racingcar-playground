@@ -2,15 +2,19 @@ package view;
 
 import domain.Car;
 import domain.Cars;
+import enums.ViewMessage;
 import util.ValidationUtil;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
 
-    public static Cars readRacingCars(String input) {
-        List<String> cars = ValidationUtil.getCars(input);
+    public static Cars readRacingCars(BufferedReader input) throws IOException {
+        printMessage(ViewMessage.INPUT_RACING_CAR_NAME_MESSAGE);
+        List<String> cars = ValidationUtil.getCars(input.readLine());
         return mapCars(cars);
     }
 
@@ -22,7 +26,12 @@ public class InputView {
         return new Cars(result);
     }
 
-    public static int readTryCount(String input) {
-        return Integer.parseInt(input);
+    public static int readTryCount(BufferedReader input) throws IOException {
+        printMessage(ViewMessage.INPUT_TRY_COUNT_MESSAGE);
+        return Integer.parseInt(input.readLine());
+    }
+
+    private static void printMessage(ViewMessage message) {
+        System.out.println(message.getValue());
     }
 }

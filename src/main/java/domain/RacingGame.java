@@ -1,19 +1,21 @@
 package domain;
 
-
-import enums.ViewMessage;
-import view.OutputView;
-
-import java.util.stream.IntStream;
-
 public class RacingGame {
+    private final Cars cars;
 
-    public static void run(Cars cars, int count) {
-        IntStream
-                .range(0, count)
-                .forEach(index -> OutputView.printStatus(cars.move()));
+    public RacingGame(Cars cars) {
+        this.cars = cars;
+    }
 
-        Cars winner = cars.getWinner();
-        OutputView.printResult(winner);
+    public String play() {
+        return cars.move();
+    }
+
+    public Cars getWinner() {
+        return cars.getWinner();
+    }
+
+    public Cars getCurrentStatus() {
+        return cars;
     }
 }
