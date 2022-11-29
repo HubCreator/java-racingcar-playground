@@ -1,7 +1,7 @@
 package enums;
 
 public enum Delimiter {
-    COMMA(","), HIPEN("-");
+    COMMA(","), HYPHEN("-");
 
     private final String value;
 

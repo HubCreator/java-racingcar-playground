@@ -36,7 +36,7 @@ public class Car {
         StringBuilder result = new StringBuilder();
         IntStream
                 .range(0, position.getPosition())
-                .forEach((index) -> result.append(Delimiter.HIPEN.getValue()));
+                .forEach((index) -> result.append(Delimiter.HYPHEN.getValue()));
         return MessageFormat.format(MESSAGE_FORMAT, name, result.toString());
     }
 }
