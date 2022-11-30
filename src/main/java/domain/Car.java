@@ -2,6 +2,7 @@ package domain;
 
 import enums.ConstVariable;
 import enums.Delimiter;
+import strategy.MoveStrategy;
 
 import java.text.MessageFormat;
 import java.util.stream.IntStream;
@@ -15,6 +16,12 @@ public class Car {
     public Car(String name) {
         this.name = name;
         position = new Position();
+    }
+
+    public void move(MoveStrategy strategy) {
+        if (strategy.movable()) {
+            position.moveForward();
+        }
     }
 
     public void move(int randomNumber) {

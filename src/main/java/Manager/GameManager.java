@@ -23,7 +23,6 @@ public class GameManager {
                 .range(0, count)
                 .forEach(index -> OutputView.printStatus(racingGame.play()));
 
-        OutputView.print(racingGame.getCurrentStatus().toString());
-        OutputView.printResult(racingGame.getWinner());
+        OutputView.printResult(racingGame.getCurrentStatus(), racingGame.getWinner());
     }
 }

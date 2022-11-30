@@ -1,6 +1,5 @@
 package view;
 
-
 import domain.Car;
 import domain.Cars;
 import enums.ViewMessage;
@@ -14,7 +13,8 @@ public class OutputView {
         print(cars);
     }
 
-    public static void printResult(Cars winner) {
+    public static void printResult(Cars currentStatus, Cars winner) {
+        print(currentStatus.toString());
         StringJoiner joiner = new StringJoiner(", ");
         for (Car car : winner) {
             joiner.add(car.getName());

@@ -1,6 +1,7 @@
 package domain;
 
-import util.RandomUtil;
+
+import strategy.RandomMovingStrategy;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,7 +16,7 @@ public class Cars implements Iterable<Car>{
 
     public String move() {
         for (Car car : cars) {
-            car.move(RandomUtil.getRandomNumber());
+            car.move(new RandomMovingStrategy());
         }
         return this.toString();
     }
