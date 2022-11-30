@@ -22,30 +22,30 @@ public class Cars implements Iterable<Car>{
     }
 
     public Cars getWinner() {
-        List<Car> entry = new ArrayList<>();
-        int maxPosition = getMaxPosition();
+        Position maxPosition = getMaxPosition();
 
+        List<Car> entry = new ArrayList<>();
         for (Car car : cars) {
-            if (car.getPosition() == maxPosition) {
+            if (car.isWinner(maxPosition)) {
                 entry.add(car);
             }
         }
         return new Cars(entry);
     }
 
-    private int getMaxPosition() {
-        int max = 0;
+    private Position getMaxPosition() {
+        Position maxPosition = new Position(0);
         for (Car car : cars) {
-            max = Math.max(max, car.getPosition());
+            maxPosition = car.greaterPosition(maxPosition);
         }
-        return max;
+        return maxPosition;
     }
 
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Car car : cars) {
-            result.append(car.toString());
+            result.append(car.printStatus());
         }
         return result.toString();
     }

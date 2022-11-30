@@ -1,20 +1,18 @@
 package domain;
 
 import enums.ConstVariable;
-import enums.Delimiter;
 import strategy.MoveStrategy;
 
 import java.text.MessageFormat;
-import java.util.stream.IntStream;
 
 public class Car {
     private static final String MESSAGE_FORMAT = "{0} : {1}\n";
 
-    private final String name;
+    private final Name name;
     private Position position;
 
     public Car(String name) {
-        this.name = name;
+        this.name = new Name(name);
         position = new Position();
     }
 
@@ -30,20 +28,20 @@ public class Car {
         }
     }
 
-    public int getPosition() {
-        return position.getPosition();
+    public Position greaterPosition(Position maxPosition) {
+        return position.isGreaterThan(maxPosition);
     }
 
-    public String getName() {
-        return name;
+    public String printStatus() {
+        return MessageFormat.format(MESSAGE_FORMAT, name.toString(), position.toString());
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        IntStream
-                .range(0, position.getPosition())
-                .forEach((index) -> result.append(Delimiter.HYPHEN.getValue()));
-        return MessageFormat.format(MESSAGE_FORMAT, name, result.toString());
+        return name.toString();
+    }
+
+    public boolean isWinner(Position maxPosition) {
+        return this.position.equals(maxPosition);
     }
 }

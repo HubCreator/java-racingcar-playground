@@ -1,11 +1,10 @@
 package view;
 
-import domain.Car;
 import domain.Cars;
+import domain.Name;
 import enums.ViewMessage;
 
 import java.text.MessageFormat;
-import java.util.StringJoiner;
 
 
 public class OutputView {
@@ -15,11 +14,7 @@ public class OutputView {
 
     public static void printResult(Cars currentStatus, Cars winner) {
         print(currentStatus.toString());
-        StringJoiner joiner = new StringJoiner(", ");
-        for (Car car : winner) {
-            joiner.add(car.getName());
-        }
-        String result = MessageFormat.format(ViewMessage.RESULT_WHOS_WIN.getValue(), joiner);
+        String result = MessageFormat.format(ViewMessage.RESULT_WHOS_WIN.getValue(), Name.getWinnerName(winner));
         print(result);
     }
 
