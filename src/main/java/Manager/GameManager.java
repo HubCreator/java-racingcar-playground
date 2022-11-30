@@ -8,20 +8,19 @@ import view.OutputView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.stream.IntStream;
 
-public class GameManager {
+public final class GameManager {
     private RacingGame racingGame;
 
-    public  void run(BufferedReader br) throws IOException {
+    public void run(BufferedReader br) throws IOException {
         Cars cars = InputView.readRacingCars(br);
         int count = InputView.readTryCount(br);
         racingGame = new RacingGame(cars);
 
         OutputView.print(ViewMessage.RESULT_MESSAGE);
-        IntStream
-                .range(0, count)
-                .forEach(index -> OutputView.printStatus(racingGame.play()));
+        for (int index = 0; index < count; index++) {
+            OutputView.printStatus(racingGame.play());
+        }
 
         OutputView.printResult(racingGame.getCurrentStatus(), racingGame.getWinner());
     }
